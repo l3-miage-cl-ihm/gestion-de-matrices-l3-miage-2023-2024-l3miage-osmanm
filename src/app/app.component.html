@@ -1,3 +1,32 @@
 <h1>L3M 2023-2024 : Matrices</h1>
-
-à compléter...
+<p>nb col M1</p>
+<input type="number" 
+        [ngModel]="this.sigH1()"
+        (ngModelChange)="updateSigH1($event)"/>
+<p>nb ligne M1</p>
+<input type="number"
+        [ngModel]="this.sigL1()"
+        (ngModelChange)="updateSigL1($event)"/>
+<p>nb col M2</p>
+        <input type="number" 
+                [ngModel]="this.sigH2()"
+                (ngModelChange)="updateSigH2($event)"/>
+<p>nb ligne M2</p>
+        <input type="number"
+                [ngModel]="this.sigL2()"
+                (ngModelChange)="updateSigL2($event)"/>
+<pre> M1 = 
+<app-matrix [Matrice]="this.sigM1()"></app-matrix></pre>
+<pre> M2 = <app-matrix [Matrice]="this.sigM2()"></app-matrix></pre>
+<pre>M1+M2=     
+        <div *ngIf="this.sigM1plusM2() as matrix ;pasDeMatrice">
+                <app-matrix [Matrice]="this.sigM1plusM2()"></app-matrix>
+        </div>
+</pre>
+<pre>M1xM2=  
+        <div *ngIf="this.sigM1xM2() as matrix ;pasDeMatrice">
+                <app-matrix [Matrice]="this.sigM1xM2()" [highlight]="this.sigHhilightInM1plusM2()" (pointerOver)="overM1plusM2($event)"></app-matrix>
+        </div>
+<ng-template #pasDeMatrice>
+        <label>matrice non définie</label>
+</ng-template>

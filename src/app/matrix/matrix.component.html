@@ -1,0 +1,14 @@
+
+
+<pre><table class="matrix">
+    <tr *ngFor="let row of this.Matrice; let i = index">
+        <td *ngFor="let cell of row; let j = index"
+            (pointerenter)="handlePointerEnter(i, j)"
+            (pointerleave)="handlePointerLeave()">
+            {{cell}}
+            <div *ngIf="isHighlighted(i,j)" class="highlight"></div>
+        </td>
+    </tr>
+</table>
+</pre>
+
