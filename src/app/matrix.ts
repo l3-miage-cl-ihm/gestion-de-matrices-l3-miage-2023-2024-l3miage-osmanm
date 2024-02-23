@@ -119,7 +119,13 @@ export function multiplyIntMatrixes<L extends number, C extends number>(M1: Matr
   return initMatrix( (i, j) => ScalarProduct( M1.at(i)!, M2t.at(j)! ), M1.length, M1.length);
 }
 
-
+export type HighlightLine = {type: 'line', line: number};
+export type HighlightColumn = {type: 'column', column: number};
+export type HighlightCell = {type: 'cell', cell: [line: number, column: number]};
+export type Highlight = undefined
+                      | HighlightLine
+                      | HighlightColumn
+                      | HighlightCell;
 // const m1 = initMatrixIntRandom(3, 4);
 // const m2 = initMatrixIntRandom(3, 4);
 // const m3 = initMatrixIntRandom(4, 3);
